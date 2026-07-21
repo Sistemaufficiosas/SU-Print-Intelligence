@@ -96,6 +96,7 @@ class DatabaseService:
         return [dict(row) for row in rows]
 
     def delete_printer(self, printer_id: int) -> None:
+        
         with self.connect() as connection:
             connection.execute(
                 "DELETE FROM printers WHERE id = ?",

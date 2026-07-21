@@ -206,7 +206,7 @@ class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
 
-        self.setWindowTitle("SU Print Intelligence - Genesis Alpha 0.3")
+        self.setWindowTitle("SU Print Intelligence - Genesis Alpha 0.4")
         self.resize(1400, 850)
         self.setMinimumSize(1150, 700)
 
@@ -243,7 +243,7 @@ class MainWindow(QMainWindow):
         software_name = QLabel("PRINT INTELLIGENCE")
         software_name.setObjectName("softwareName")
 
-        version = QLabel("Genesis Alpha 0.3")
+        version = QLabel("Genesis Alpha 0.4")
         version.setObjectName("versionLabel")
 
         layout.addWidget(logo)
@@ -321,7 +321,7 @@ class MainWindow(QMainWindow):
         layout.addLayout(self.create_dashboard_area(), 1)
 
         footer = QLabel(
-            "SU Print Intelligence  •  Genesis Alpha 0.3  •  Centro Operativo"
+            "SU Print Intelligence  •  Genesis Alpha 0.4  •  Centro Operativo"
         )
         footer.setObjectName("footer")
         footer.setAlignment(Qt.AlignmentFlag.AlignRight)
@@ -618,7 +618,7 @@ class MainWindow(QMainWindow):
             AgendaItem(
                 "10:00",
                 "Sviluppo Dashboard",
-                "Completamento della Genesis Alpha 0.3.",
+                "Completamento della Genesis Alpha 0.4.",
             )
         )
 
