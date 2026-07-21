@@ -25,6 +25,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from app.modules.printer_detail import PrinterDetailDialog
 from app.services.database_service import DatabaseService
 
 
@@ -795,7 +796,7 @@ class PrintersWidget(QWidget):
         self.table.setAlternatingRowColors(True)
         self.table.verticalHeader().setVisible(False)
         self.table.doubleClicked.connect(
-            self.open_edit_dialog
+            self.open_detail_dialog
         )
 
         header = self.table.horizontalHeader()
@@ -890,6 +891,26 @@ class PrintersWidget(QWidget):
         )
         dialog.printer_saved.connect(
             self.handle_printers_changed
+        )
+        dialog.exec()
+
+    def open_detail_dialog(self) -> None:
+        """Apre la cartella tecnica della stampante selezionata."""
+
+        printer_id = self.get_selected_printer_id()
+
+        if printer_id is None:
+            QMessageBox.warning(
+                self,
+                "Nessuna stampante selezionata",
+                "Seleziona una stampante dall’elenco.",
+            )
+            return
+
+        dialog = PrinterDetailDialog(
+            database=self.database,
+            printer_id=printer_id,
+            parent=self,
         )
         dialog.exec()
 
